@@ -1,4 +1,4 @@
-require('dotenv').config();
+require("dotenv").config();
 const express = require('express');
 const mongoose = require("mongoose");
 const bodyParser = require('body-parser');
@@ -55,7 +55,7 @@ app.post('/db', async (req, res) => {
 
     }
     catch(error){
-
+        console.log(error);
     }
 })
 
