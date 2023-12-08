@@ -8,7 +8,7 @@ const path = require("path");
 const port = process.env.PORT;
 const app = express();
 
-mongoose.connect('mongodb://localhost:27017/url', {
+mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true, useUnifiedTopology: true
 });
 
@@ -43,8 +43,6 @@ app.post('/db', async (req, res) => {
         const foundDocuments = await urlAddress.find({
             userId : userid
         });
-        console.log(foundDocuments);
-        console.log("foundDocuments[1] is " + foundDocuments[1]);
         if (foundDocuments.length > 0){
             //console.log("foundDocuments is " + foundDocuments);
             return res.send([...foundDocuments]);
