@@ -10,8 +10,6 @@ const App = () => {
 
   useEffect(() => {
 
-    //setUserId(localStorage.getItem('userId') || uuidv4());
-    //changeUserId();
     userId = localStorage.getItem('userId') || uuidv4();
     localStorage.setItem('userId', userId);
 
