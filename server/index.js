@@ -35,7 +35,7 @@ if (process.env.NODE_ENV === "production"){
     });
 }
 else {
-    /*"heroku-postbuild": "NPM_CONFIG_PRODUCTION=FALSE npm install --prefix client && npm run build && --prefix client"*/
+   
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 app.post('/db', async (req, res) => {
@@ -47,7 +47,7 @@ app.post('/db', async (req, res) => {
             userId : userid
         });
         if (foundDocuments.length > 0){
-            //console.log("foundDocuments is " + foundDocuments);
+            
             return res.send([...foundDocuments]);
         }
         else {

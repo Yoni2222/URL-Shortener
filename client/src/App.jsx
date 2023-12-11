@@ -20,7 +20,7 @@ const App = () => {
   const getFromDB = async (userId) => {
     //alert("in getfromdb, userId is " + userId);
       try {
-        const response = await fetch(HOST_URL + "/db", {
+        const response = await fetch(HOST_URL + "db", {
           method: "POST",
           mode: "cors", 
           headers: {
@@ -59,7 +59,7 @@ const App = () => {
             */
           }
           else if (res[0] == "null"){
-            alert("didn't find any array");
+            //alert("didn't find any array");
           }
         })
       .catch((err)=>{
@@ -133,9 +133,9 @@ const HeaderAndInput = (props) => {
         return [...prev, {originalUrl : longURL, shortUrl : shortURL, date : currentDate, currTime : time}];
       });
       
-      alert("userId is " + userId);
+      //alert("userId is " + userId);
       try {
-        const response = await fetch(HOST_URL + "/api/url", {
+        const response = await fetch(HOST_URL + "api/url", {
           method: "POST",
           mode: "cors", 
           headers: {
@@ -146,7 +146,9 @@ const HeaderAndInput = (props) => {
       .then((res) => res.json())
       .then((res) => {
         if (res.success === true)
-          alert("succeeded");
+          console.log("succeeded");  
+        //alert("succeeded");
+
       })
       .catch((err)=>{
         console.log("can't get response + error");
@@ -154,7 +156,7 @@ const HeaderAndInput = (props) => {
       
     }
       catch(error){
-        alert("bug");
+        //alert("bug");
         console.log("failed to post. Here is the error: " + error);         
       }
 
@@ -219,7 +221,7 @@ const CopyLinkButton = (props) => {
 
   const copyLink = () => {
     navigator.clipboard.writeText(HOST_URL + "/" + props.url);
-    alert(props.url);
+    //alert(props.url);
   }
 
   return (
