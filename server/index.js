@@ -100,8 +100,9 @@ app.post('/api/url', async (req, res)=> {
     }
 });
 
-app.get('/:shortUrl', async (req, res)=> {
+app.get('/newUrl/:shortUrl', async (req, res)=> {
     console.log("i am here");
+    alert("Hey");
     try {
         const foundDoc = await urlAddress.findOne({
             shortUrl : req.params.shortUrl
