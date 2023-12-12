@@ -166,9 +166,9 @@ const ListOfURLs = (props) => {
   const space = " ";
   //`${HOST_URL}newUrl/${elem.shortUrl}`
 
-  const handleClick = async () => {
+  const handleClick = async (val, event) => {
     try {
-      const response = await fetch(HOST_URL + `newUrl/${elem.shortUrl}`);
+      const response = await fetch(HOST_URL + `newUrl/${val}`);
     }
     catch(err){
       console.log(err);
@@ -183,7 +183,7 @@ const ListOfURLs = (props) => {
         <li className = "list-group-item">
           <div className = "d-flex justify-content-between">
             <div className = "align-self-start">
-                <a href = '#' onClick = {handleClick}>{HOST_URL  + elem.shortUrl + " "} {space}</a>
+                <a href = '#' onClick = {handleClick.bind(elem.shortUrl)}>{HOST_URL  + elem.shortUrl + " "} {space}</a>
                 {/*<a href = {HOST_URL + `newUrl/${elem.shortUrl}`} onClick = {handleClick}>{HOST_URL  + elem.shortUrl + " "} {space}</a>*/}
                 {/*<a href = {HOST_URL + `newUrl/shortUrl`}>{HOST_URL  + elem.shortUrl + " "} {space}</a>*/}
             </div>
