@@ -40,23 +40,6 @@ const App = () => {
                 return [...prev, elem];
               });
             });
-
-            /* 
-                          arr.map(elem => {
-              const res = urls.find(element => {
-                if (element.shortUrl === elem.shortUrl && element.originalUrl === elem.originalUrl) {
-                  return true;
-                }
-                return false;
-              });
-              if (res === false){
-                setUrls(prev => {
-                  return [...prev, elem];
-                });
-              }
-
-            });
-            */
           }
           else if (res[0] == "null"){
             //alert("didn't find any array");
@@ -182,6 +165,17 @@ const HeaderAndInput = (props) => {
 const ListOfURLs = (props) => {
   const space = " ";
   //`${HOST_URL}newUrl/${elem.shortUrl}`
+
+  const handleClick = async () => {
+    try {
+      const response = await fetch(HOST_URL + `newUrl/${elem.shortUrl}`);
+    }
+    catch(err){
+      console.log(err);
+
+    }
+  }
+
   return (
     
     <ul className = "list-group" style = {{width:"99.3%"}}>
@@ -189,7 +183,8 @@ const ListOfURLs = (props) => {
         <li className = "list-group-item">
           <div className = "d-flex justify-content-between">
             <div className = "align-self-start">
-                <a href = {HOST_URL + `newUrl/${elem.shortUrl}`}>{HOST_URL  + elem.shortUrl + " "} {space}</a>
+                <a href = '#' onClick = {handleClick}>{HOST_URL  + elem.shortUrl + " "} {space}</a>
+                {/*<a href = {HOST_URL + `newUrl/${elem.shortUrl}`} onClick = {handleClick}>{HOST_URL  + elem.shortUrl + " "} {space}</a>*/}
                 {/*<a href = {HOST_URL + `newUrl/shortUrl`}>{HOST_URL  + elem.shortUrl + " "} {space}</a>*/}
             </div>
             <div className = "fs-5 ml-3" style = {{marginLeft: '600px'}}>
