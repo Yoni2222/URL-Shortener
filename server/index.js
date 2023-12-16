@@ -22,7 +22,7 @@ app.use(express.json());
 
 
 /////////////////////////////////////////////////////deployment///////////////////////////////////////////////////////////
-__dirname = path.resolve("../");
+__dirname = path.resolve("./");
 console.log("dirname is " + __dirname);
 console.log("process.env.NODE_ENV is " + process.env.NODE_ENV);
 if (process.env.NODE_ENV === "production"){
