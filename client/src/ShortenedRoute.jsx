@@ -32,10 +32,12 @@ const ShortenedRoute = (props) => {
           })
         .catch((error)=>{
           console.log("can't get response from db " + error);
+          alert("cant get response from db");
       });
     }
     catch (err){
         console.log(err);
+        alert("failed to reach server");
     }
     }
 
