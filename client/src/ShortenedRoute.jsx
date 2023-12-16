@@ -24,6 +24,7 @@ const ShortenedRoute = (props) => {
         })
           .then((res) => res.json())
           .then((res) => {
+            alert("im back here");
             if (res.success === true){
                 setRouteAccepted(true);
                 navigate(res.originalUrl);
