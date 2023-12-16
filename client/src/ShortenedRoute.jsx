@@ -16,7 +16,7 @@ const ShortenedRoute = (props) => {
         
         //const path = props.match.params.shortUrl;
         let { path } = useParams();
-        alert("path is " + {path});
+        alert("path is " + path);
         try {
         const response = await fetch(HOST_URL + "newUrl/shortUrl", {
             method: "POST",
@@ -24,7 +24,7 @@ const ShortenedRoute = (props) => {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({shortUrl : {path}})
+            body: JSON.stringify({shortUrl : path})
         })
           .then((res) => res.json())
           .then((res) => {
