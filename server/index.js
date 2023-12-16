@@ -100,19 +100,21 @@ app.post('/api/url', async (req, res)=> {
     }
 });
 
-app.get('/newUrl/:shortUrl', async (req, res)=> {
+app.post('/newUrl/:shortUrl', async (req, res)=> {
     console.log("i am here");
-    alert("Hey");
+    //alert("Hey");
     try {
         const foundDoc = await urlAddress.findOne({
-            shortUrl : req.params.shortUrl
+            shortUrl : req.body.shortUrl
         });
         if (foundDoc){
             console.log("doc was found");
-            res.redirect(foundDoc.originalUrl);
+            //res.redirect(foundDoc.originalUrl);
+            res.json({originalUrl : foundDoc.originalUrl});
         }
         else {
-            res.send("404! Page not found!");
+            //res.send("404! Page not found!");
+            res.json({success : false});
         }
         
     }
