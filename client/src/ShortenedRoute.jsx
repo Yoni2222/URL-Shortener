@@ -6,13 +6,13 @@ import { HOST_URL } from './Constants'
 const ShortenedRoute = (props) => {
     const [routeAccepted, setRouteAccepted] = useState(false);
     const navigate = useNavigate();
-
+    //let { path } = useParams();
     useEffect(() => {
-        getFromDB();
+        GetFromDB();
 
     }, []);
 
-    const getFromDB = async() => {
+    const GetFromDB = async() => {
         alert("path is ");
         //const path = props.match.params.shortUrl;
         let { path } = useParams();
