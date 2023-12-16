@@ -13,7 +13,7 @@ const Menu = () => {
 
     userId = localStorage.getItem('userId') || uuidv4();
     localStorage.setItem('userId', userId);
-    alert("path is ");
+    //alert("path is ");
     getFromDB(userId);
   }, []);
 

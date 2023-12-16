@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useParams } from "react-router";
 import { HOST_URL } from './Constants'
 
 const ShortenedRoute = (props) => {
@@ -13,8 +14,8 @@ const ShortenedRoute = (props) => {
 
     const getFromDB = async() => {
         alert("path is ");
-        const path = props.match.params.shortUrl;
-        
+        //const path = props.match.params.shortUrl;
+        let { path } = useParams();
         try {
         const response = await fetch(HOST_URL + "newUrl/shortUrl", {
             method: "POST",
@@ -22,7 +23,7 @@ const ShortenedRoute = (props) => {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({shortUrl : path})
+            body: JSON.stringify({shortUrl : {path}})
         })
           .then((res) => res.json())
           .then((res) => {
