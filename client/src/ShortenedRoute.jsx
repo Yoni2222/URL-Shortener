@@ -13,8 +13,9 @@ const ShortenedRoute = (props) => {
 
     const getFromDB = async() => {
         const path = props.match.params.shortUrl;
+        alert("path is " + path);
         try {
-        const response = await fetch("/newUrl/shortUrl", {
+        const response = await fetch(HOST_URL + "newUrl/shortUrl", {
             method: "POST",
             mode: "cors", 
             headers: {
