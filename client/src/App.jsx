@@ -8,7 +8,7 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route index element={<Main />} />
-        <Route path = ":shortUrl" element = {<ShortenedRoute/>}/>
+        <Route path = "/:shortUrl" element = {<ShortenedRoute/>}/>
         <Route/>
       </Routes>
     </BrowserRouter>
