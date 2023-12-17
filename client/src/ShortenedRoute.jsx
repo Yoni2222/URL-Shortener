@@ -16,7 +16,7 @@ const ShortenedRoute = (props) => {
 
     const GetFromDB = async() => {
         
-        alert("path2 is " + window.location.pathname);
+        alert("path2 is " + window.location.pathname.slice(1, 6));
         //var { path } = useParams();
         //alert("path is " + path);
         try {
