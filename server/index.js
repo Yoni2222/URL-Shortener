@@ -110,7 +110,7 @@ app.post('/newUrl/shortUrl', async (req, res)=> {
         if (foundDoc){
             console.log("doc was found");
             //res.redirect(foundDoc.originalUrl);
-            res.json({originalUrl : foundDoc.originalUrl});
+            res.json({success : true, originalUrl : foundDoc.originalUrl});
         }
         else {
             //res.send("404! Page not found!");
