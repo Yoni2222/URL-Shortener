@@ -185,6 +185,7 @@ const ListOfURLs = (props) => {
       {props.list.length > 0 && props.list.map((elem) => {
 
         {var shortUrl = elem.shortUrl;}
+        return (
         <li className = "list-group-item">
           <div className = "d-flex justify-content-between">
             <div className = "align-self-start">
@@ -211,6 +212,7 @@ const ListOfURLs = (props) => {
             </div>
           </div>
         </li>
+        );
         }      
       )}
       
