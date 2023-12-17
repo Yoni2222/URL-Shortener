@@ -33,6 +33,7 @@ const ShortenedRoute = (props) => {
           .then((res) => {
             alert("im back here");
             if (res.success === true){
+                alert("res.success is true");
                 setRouteAccepted(true);
                 navigate(res.originalUrl);
             }
