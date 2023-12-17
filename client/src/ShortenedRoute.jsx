@@ -26,7 +26,7 @@ const ShortenedRoute = (props) => {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({shortUrl : path})
+            body: JSON.stringify({shortUrl : "path"})
         })
           .then((res) => res.json())
           .then((res) => {
