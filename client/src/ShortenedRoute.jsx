@@ -35,7 +35,8 @@ const ShortenedRoute = (props) => {
             if (res.success === true){
                 alert("res.success is true");
                 setRouteAccepted(true);
-                navigate(res.originalUrl);
+                //navigate(res.originalUrl);
+                window.location.replace(res.originalUrl);
             }
           })
         .catch((error)=>{
