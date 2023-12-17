@@ -7,7 +7,7 @@ const ShortenedRoute = (props) => {
     const [routeAccepted, setRouteAccepted] = useState(false);
     const navigate = useNavigate();
     //const path2 = props.match.params.shortUrl;
-    alert("path2 is " + window.location.href);
+    
     //let { path } = useParams();
     useEffect(() => {
         GetFromDB();
@@ -16,7 +16,7 @@ const ShortenedRoute = (props) => {
 
     const GetFromDB = async() => {
         
-
+        alert("path2 is " + window.location.href);
         //var { path } = useParams();
         //alert("path is " + path);
         try {
