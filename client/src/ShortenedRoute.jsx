@@ -17,6 +17,7 @@ const ShortenedRoute = (props) => {
     const GetFromDB = async() => {
         
         alert("path2 is " + window.location.pathname.slice(1, 6));
+        var path = window.location.pathname.slice(1, 6);
         //var { path } = useParams();
         //alert("path is " + path);
         try {
@@ -26,7 +27,7 @@ const ShortenedRoute = (props) => {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({shortUrl : "path"})
+            body: JSON.stringify({shortUrl : path})
         })
           .then((res) => res.json())
           .then((res) => {
