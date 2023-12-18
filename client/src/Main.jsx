@@ -89,19 +89,31 @@ const HeaderAndInput = (props) => {
 
     const urlInTheList = () => {
         const res = props.list.map((elem) => {
-            if (elem.originalUrl == longURL)
+            if (elem.originalUrl === longURL)
                 return true;
         });
         if (res === true)
             return true;
-        return false
+        return false;
     }
+
+    const isValidUrl = (url) => {
+        try {
+          new URL(url);
+          return true;
+        } catch (err) {
+          return false;
+        }
+      }
     
     const getShortURL = async (event) => {
       
       event.preventDefault();
       
-      if (urlInTheList === false){
+      if (isValidUrl(longURL) === false){
+        alert("This URL is not valid");
+      }
+      else if (urlInTheList() === false){
         const shortURL = cryptoRandomString({length : 5, type : 'alphanumeric'});
 
         var date = new Date();
@@ -155,7 +167,11 @@ const HeaderAndInput = (props) => {
             console.log("failed to post. Here is the error: " + error);         
         }
 
-        };
+        }
+        else {
+            alert("This url is already in the list.");
+        }
+
     }
 
     return (
