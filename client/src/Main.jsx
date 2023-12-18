@@ -184,12 +184,12 @@ const ListOfURLs = (props) => {
     <ul className = "list-group" style = {{width:"99.3%"}}>
       {props.list.length > 0 && props.list.map((elem) => {
 
-        {var shortUrl = elem.shortUrl;}
+        {/*var shortUrl = elem.shortUrl;*/}
         return (
         <li className = "list-group-item">
           <div className = "d-flex justify-content-between">
             <div className = "align-self-start">
-                <Link to = {`/${shortUrl}`}>{HOST_URL  + elem.shortUrl + " "} {space}</Link>
+                <Link to = {`/${elem.shortUrl}`}>{HOST_URL  + elem.shortUrl + " "}</Link>
                 {/*<Outlet/>*/}
                 {/*<a onClick = {handleClick.bind(null, elem.shortUrl)}>{HOST_URL  + elem.shortUrl + " "} {space}</a>*/}
                 {/*<a href = {HOST_URL + `newUrl/${elem.shortUrl}`} onClick = {handleClick}>{HOST_URL  + elem.shortUrl + " "} {space}</a>*/}
