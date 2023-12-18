@@ -86,65 +86,77 @@ const HeaderAndInput = (props) => {
       var url = event.target.value;
       setLongURL(url);
     };
+
+    const urlInTheList = () => {
+        const res = props.list.map((elem) => {
+            if (elem.originalUrl == longURL)
+                return true;
+        });
+        if (res === true)
+            return true;
+        return false
+    }
     
     const getShortURL = async (event) => {
       
       event.preventDefault();
       
-      const shortURL = cryptoRandomString({length : 5, type : 'alphanumeric'});
+      if (urlInTheList === false){
+        const shortURL = cryptoRandomString({length : 5, type : 'alphanumeric'});
 
-      var date = new Date();
-      var day = date.getDate();
-      var month = date.getMonth() + 1;
-      var year = date.getFullYear();
-      
-      var currentDate = `${day}/${month}/${year}`;
-      
-      var time = String(date.toJSON().slice(11, 16));
-      var hours = time.slice(0, 2);
-          
-      hours = (String)(parseInt(hours) + 2);
-      
-      if (parseInt(hours) > 23){
-          hours = (String)(parseInt(hours) - 24);
-      }
-      if (parseInt(hours) < 10){
-        hours = "0" + hours;
-      }
-      time = hours + time.slice(2, 5);
-      
-      props.updateList(prev => {
-        return [...prev, {originalUrl : longURL, shortUrl : shortURL, date : currentDate, currTime : time}];
-      });
-      
-      //alert("userId is " + userId);
-      try {
-        const response = await fetch(HOST_URL + "api/url", {
-          method: "POST",
-          mode: "cors", 
-          headers: {
-              'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({originalUrl : longURL, shortUrl : shortURL, date : currentDate, currTime : time, userId : userId})
-      })
-      .then((res) => res.json())
-      .then((res) => {
-        if (res.success === true)
-          console.log("succeeded");  
-        //alert("succeeded");
+        var date = new Date();
+        var day = date.getDate();
+        var month = date.getMonth() + 1;
+        var year = date.getFullYear();
+        
+        var currentDate = `${day}/${month}/${year}`;
+        
+        var time = String(date.toJSON().slice(11, 16));
+        var hours = time.slice(0, 2);
+            
+        hours = (String)(parseInt(hours) + 2);
+        
+        if (parseInt(hours) > 23){
+            hours = (String)(parseInt(hours) - 24);
+        }
+        if (parseInt(hours) < 10){
+            hours = "0" + hours;
+        }
+        time = hours + time.slice(2, 5);
+        
+        props.updateList(prev => {
+            return [...prev, {originalUrl : longURL, shortUrl : shortURL, date : currentDate, currTime : time}];
+        });
+        
+        //alert("userId is " + userId);
+        try {
+            const response = await fetch(HOST_URL + "api/url", {
+            method: "POST",
+            mode: "cors", 
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({originalUrl : longURL, shortUrl : shortURL, date : currentDate, currTime : time, userId : userId})
+        })
+        .then((res) => res.json())
+        .then((res) => {
+            if (res.success === true)
+            console.log("succeeded");  
+            //alert("succeeded");
 
-      })
-      .catch((err)=>{
-        console.log("can't get response + error");
-    });
-      
+        })
+        .catch((err)=>{
+            console.log("can't get response" + err);
+        });
+        
+        }
+        catch(error){
+            //alert("bug");
+            console.log("failed to post. Here is the error: " + error);         
+        }
+
+        };
     }
-      catch(error){
-        //alert("bug");
-        console.log("failed to post. Here is the error: " + error);         
-      }
-
-    };
 
     return (
       <div>
@@ -186,7 +198,7 @@ const ListOfURLs = (props) => {
         <li className = "list-group-item">
           <div className = "d-flex justify-content-between">
             <div className = "align-self-start">
-                <Link to = {`/${elem.shortUrl}`}>{HOST_URL  + elem.shortUrl + " "}</Link>
+                <Link to = {`/${elem.shortUrl}`}>{HOST_URL  + elem.shortUrl}</Link>
                 {/*<Outlet/>*/}
                 {/*<a onClick = {handleClick.bind(null, elem.shortUrl)}>{HOST_URL  + elem.shortUrl + " "} {space}</a>*/}
                 {/*<a href = {HOST_URL + `newUrl/${elem.shortUrl}`} onClick = {handleClick}>{HOST_URL  + elem.shortUrl + " "} {space}</a>*/}
