@@ -88,12 +88,10 @@ const HeaderAndInput = (props) => {
     };
 
     const urlInTheList = () => {
-        const res = props.list.map((elem) => {
-            if (elem.originalUrl === longURL)
+        for (let i = 0; i < props.list.length; i++){
+            if (props.list[i].originalUrl === longURL)
                 return true;
-        });
-        if (res === true)
-            return true;
+        }
         return false;
     }
 
