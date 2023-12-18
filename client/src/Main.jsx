@@ -194,10 +194,10 @@ const ListOfURLs = (props) => {
             </div>
             <div className = "fs-5 ml-3" style = {{marginLeft: '500px'}}>
               
-                {" " + elem.date}
+                {elem.date}
             </div>
             <div className = "fs-5" style = {{marginRight: '30px'}}>
-                {" " + elem.currTime + " "}
+                {elem.currTime}
             </div> 
             <div className = "fs-5" style = {{marginRight: '-10px'}}>
                 <CopyLinkButton url = {elem.shortUrl}/>
