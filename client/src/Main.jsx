@@ -182,10 +182,7 @@ const ListOfURLs = (props) => {
   return (
     
     <ul className = "list-group" style = {{width:"99.3%"}}>
-      {props.list.length > 0 && props.list.map((elem) => {
-
-        {/*var shortUrl = elem.shortUrl;*/}
-        return (
+      {props.list.length > 0 && props.list.map((elem) =>
         <li className = "list-group-item">
           <div className = "d-flex justify-content-between">
             <div className = "align-self-start">
@@ -211,9 +208,7 @@ const ListOfURLs = (props) => {
               {elem.originalUrl}
             </div>
           </div>
-        </li>
-        );
-        }      
+        </li>     
       )}
       
     </ul>
