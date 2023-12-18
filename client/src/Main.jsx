@@ -195,7 +195,7 @@ const ListOfURLs = (props) => {
                 {/*<a href = {HOST_URL + `newUrl/${elem.shortUrl}`} onClick = {handleClick}>{HOST_URL  + elem.shortUrl + " "} {space}</a>*/}
                 {/*<a href = {HOST_URL + `newUrl/shortUrl`}>{HOST_URL  + elem.shortUrl + " "} {space}</a>*/}
             </div>
-            <div className = "fs-5 ml-3" style = {{marginLeft: '600px'}}>
+            <div className = "fs-5 ml-3" style = {{marginLeft: '500px'}}>
               
                 {" " + elem.date}
             </div>

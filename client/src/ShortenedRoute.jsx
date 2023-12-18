@@ -16,7 +16,7 @@ const ShortenedRoute = (props) => {
 
     const GetFromDB = async() => {
         
-        alert("path2 is " + window.location.pathname.slice(1, 6));
+        //alert("path2 is " + window.location.pathname.slice(1, 6));
         var path = window.location.pathname.slice(1, 6);
         //var { path } = useParams();
         //alert("path is " + path);
@@ -35,7 +35,6 @@ const ShortenedRoute = (props) => {
             if (res.success === true){
                 alert("res.success is true");
                 setRouteAccepted(true);
-                //navigate(res.originalUrl);
                 window.location.replace(res.originalUrl);
             }
           })
