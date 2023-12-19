@@ -211,21 +211,18 @@ const ListOfURLs = (props) => {
       {props.list.length > 0 && props.list.map((elem) =>
         <li className = "list-group-item">
           <div className = "d-flex justify-content-between">
-            <div className = "align-self-start">
+            <div className = "align-self-start col-sm-9">
                 <Link to = {`/${elem.shortUrl}`}>{HOST_URL  + elem.shortUrl}</Link>
                 {/*<Outlet/>*/}
-                {/*<a onClick = {handleClick.bind(null, elem.shortUrl)}>{HOST_URL  + elem.shortUrl + " "} {space}</a>*/}
-                {/*<a href = {HOST_URL + `newUrl/${elem.shortUrl}`} onClick = {handleClick}>{HOST_URL  + elem.shortUrl + " "} {space}</a>*/}
-                {/*<a href = {HOST_URL + `newUrl/shortUrl`}>{HOST_URL  + elem.shortUrl + " "} {space}</a>*/}
             </div>
-            <div className = "fs-5 ml-3" style = {{marginLeft: '500px'}}>
+            <div className = "fs-5 ml-3 col-sm-1" style = {{marginLeft: '500px'}}>
               
                 {elem.date}
             </div>
-            <div className = "fs-5" style = {{marginRight: '30px'}}>
+            <div className = "fs-5 col-sm-1" style = {{marginRight: '30px'}}>
                 {elem.currTime}
             </div> 
-            <div className = "fs-5" style = {{marginRight: '-10px'}}>
+            <div className = "fs-5 col-sm-1" style = {{marginRight: '-10px'}}>
                 <CopyLinkButton url = {elem.shortUrl}/>
             </div>
           </div>
