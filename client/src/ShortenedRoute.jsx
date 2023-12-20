@@ -16,10 +16,10 @@ const ShortenedRoute = (props) => {
 
     const GetFromDB = async() => {
         
-        //alert("path2 is " + window.location.pathname.slice(1, 6));
+        
         var path = window.location.pathname.slice(1, 6);
         //var { path } = useParams();
-        //alert("path is " + path);
+        
         try {
         const response = await fetch(HOST_URL + "newUrl/shortUrl", {
             method: "POST",
@@ -31,21 +31,21 @@ const ShortenedRoute = (props) => {
         })
           .then((res) => res.json())
           .then((res) => {
-            alert("im back here");
+            //alert("im back here");
             if (res.success === true){
-                alert("res.success is true");
+                //alert("res.success is true");
                 setRouteAccepted(true);
                 window.location.replace(res.originalUrl);
             }
           })
         .catch((error)=>{
           console.log("can't get response from db " + error);
-          alert("cant get response from db");
+          //alert("cant get response from db");
       });
     }
     catch (err){
         console.log(err);
-        alert("failed to reach server");
+        //alert("failed to reach server");
     }
     }
 
