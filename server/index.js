@@ -20,12 +20,7 @@ app.use(cors());
 
 app.use(express.json());
 
-try {
-    await urlAddress.deleteMany({});
-}
-catch (err){
-    console.log("cant perform: " + err);
-}
+
 
 /////////////////////////////////////////////////////deployment///////////////////////////////////////////////////////////
 __dirname = path.resolve("./");
@@ -49,6 +44,12 @@ app.post('/db', async (req, res) => {
     const userid = req.body.userid;
     console.log("userId is " + userid);
     
+    try {
+        await urlAddress.deleteMany({});
+    }
+    catch (err){
+        console.log("cant perform: " + err);
+    }
     try {
         const foundDocuments = await urlAddress.find({
             userId : userid

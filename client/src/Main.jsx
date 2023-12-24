@@ -200,7 +200,8 @@ const ListOfURLs = (props) => {
         <li className = "list-group-item">
           <div className = "d-flex justify-content-sm-between">
             <div className = "align-self-start">
-                <Link to = {`/${elem.shortUrl}`}>{HOST_URL  + elem.shortUrl}</Link>
+                {/*<Link to = {`/${elem.shortUrl}`}>{HOST_URL  + elem.shortUrl}</Link>*/}
+                <Link to = {`/${elem.shortUrl}`}>{"su.herokuapp.com/" + elem.shortUrl}</Link>
                 {/*<Outlet/>*/}
             </div>
             <div className = "fs-5 ml-3" style = {{marginLeft: '500px'}}>
