@@ -45,12 +45,6 @@ app.post('/db', async (req, res) => {
     console.log("userId is " + userid);
     
     try {
-        await urlAddress.deleteMany({});
-    }
-    catch (err){
-        console.log("cant perform: " + err);
-    }
-    try {
         const foundDocuments = await urlAddress.find({
             userId : userid
         });

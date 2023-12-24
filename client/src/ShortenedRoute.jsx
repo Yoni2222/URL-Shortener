@@ -1,14 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useParams } from "react-router-dom";
 import { HOST_URL } from './Constants'
 
 const ShortenedRoute = (props) => {
     const [routeAccepted, setRouteAccepted] = useState(false);
     const navigate = useNavigate();
-    //const path2 = props.match.params.shortUrl;
-    
-    //let { path } = useParams();
+
     useEffect(() => {
         GetFromDB();
 
@@ -18,7 +15,6 @@ const ShortenedRoute = (props) => {
         
         
         var path = window.location.pathname.slice(1, 6);
-        //var { path } = useParams();
         
         try {
         const response = await fetch(HOST_URL + "newUrl/shortUrl", {
@@ -31,21 +27,21 @@ const ShortenedRoute = (props) => {
         })
           .then((res) => res.json())
           .then((res) => {
-            //alert("im back here");
+            
             if (res.success === true){
-                //alert("res.success is true");
+                
                 setRouteAccepted(true);
                 window.location.replace(res.originalUrl);
             }
           })
         .catch((error)=>{
           console.log("can't get response from db " + error);
-          //alert("cant get response from db");
+          
       });
     }
     catch (err){
         console.log(err);
-        //alert("failed to reach server");
+        
     }
     }
 

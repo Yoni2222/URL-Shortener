@@ -13,13 +13,13 @@ const Menu = () => {
 
     userId = localStorage.getItem('userId') || uuidv4();
     localStorage.setItem('userId', userId);
-    //alert("path is ");
+    
     getFromDB(userId);
   }, []);
 
 
   const getFromDB = async (userId) => {
-    //alert("in getfromdb, userId is " + userId);
+    
       try {
         const response = await fetch(HOST_URL + "db", {
           method: "POST",
@@ -31,10 +31,9 @@ const Menu = () => {
       })
         .then((res) => res.json())
         .then((res) => {
-          //alert("res[0] is " + res[0]);
+         
           if (res[0] != "null"){
-            //alert("len of arr is " + res.length);
-            //console.log("res is " + {res});
+
             var arr = res;
             arr.map(elem => {
               setUrls(prev => {
@@ -43,7 +42,7 @@ const Menu = () => {
             });
           }
           else if (res[0] == "null"){
-            //alert("didn't find any array");
+            
           }
         })
       .catch((err)=>{
@@ -138,7 +137,6 @@ const HeaderAndInput = (props) => {
             return [...prev, {originalUrl : longURL, shortUrl : shortURL, date : currentDate, currTime : time}];
         });
         
-        //alert("userId is " + userId);
         try {
             const response = await fetch(HOST_URL + "api/url", {
             method: "POST",
@@ -152,8 +150,7 @@ const HeaderAndInput = (props) => {
         .then((res) => {
             if (res.success === true)
             console.log("succeeded");  
-            //alert("succeeded");
-
+            
         })
         .catch((err)=>{
             console.log("can't get response" + err);
@@ -161,7 +158,6 @@ const HeaderAndInput = (props) => {
         
         }
         catch(error){
-            //alert("bug");
             console.log("failed to post. Here is the error: " + error);         
         }
 
@@ -190,8 +186,6 @@ const HeaderAndInput = (props) => {
 }
 
 const ListOfURLs = (props) => {
-  const space = " ";
-  //`${HOST_URL}newUrl/${elem.shortUrl}`
 
   return (
     
@@ -200,8 +194,8 @@ const ListOfURLs = (props) => {
         <li className = "list-group-item">
           <div className = "d-flex justify-content-sm-between">
             <div className = "align-self-start">
-                {/*<Link to = {`/${elem.shortUrl}`}>{HOST_URL  + elem.shortUrl}</Link>*/}
-                <Link to = {`/${elem.shortUrl}`}>{"su.herokuapp.com/" + elem.shortUrl}</Link>
+                <Link to = {`/${elem.shortUrl}`}>{HOST_URL  + elem.shortUrl}</Link>
+                {/*<Link to = {`/${elem.shortUrl}`}>{"su.herokuapp.com/" + elem.shortUrl}</Link>*/}
                 {/*<Outlet/>*/}
             </div>
             <div className = "fs-5 ml-3" style = {{marginLeft: '500px'}}>
