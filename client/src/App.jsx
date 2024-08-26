@@ -4,7 +4,7 @@ import Main from './Main.jsx';
 import ShortenedRoute from './ShortenedRoute.jsx';
 
 const App = () => {
-  var a = 15;
+  var a = 2;
   return (
     <BrowserRouter>
       <Routes>
